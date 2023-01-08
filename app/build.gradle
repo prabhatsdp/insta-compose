@@ -72,6 +72,7 @@ dependencies {
 
     // accompanist for viewpager
     implementation 'com.google.accompanist:accompanist-pager:0.27.0'
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.27.0"
 
     // Landscapist for Glide Image Loading
     implementation "com.github.skydoves:landscapist-glide:2.1.0"
