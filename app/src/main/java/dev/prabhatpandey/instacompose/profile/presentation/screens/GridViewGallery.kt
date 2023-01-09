@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 import dev.prabhatpandey.instacompose.R
@@ -30,29 +31,13 @@ fun GridViewGallery(
             columns = GridCells.Fixed(2)
         ) {
             itemsIndexed(photos) { index, item ->
-                GlideImage(
-                    imageModel = { item.thumbUrl },
-                    imageOptions = ImageOptions(
-                        contentScale = ContentScale.Crop,
-                        alignment = Alignment.Center
-                    ),
+                AsyncImage(
+                    model = item.thumbUrl,
+                    contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(1F),
-                    previewPlaceholder = R.drawable.ic_edit,
-                    failure = {
-                        Column(
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.fillMaxSize()
-                        ) {
-                            Image(
-                                imageVector = Icons.Outlined.Warning,
-                                contentDescription = null,
-                            )
-                        }
-                    },
-                    loading = {
+                    onLoading = {
 
                     }
                 )

@@ -104,3 +104,6 @@ lint/tmp/
 # Android Profiling
 *.hprof
 
+# Unignore Specific folders and files
+
+!/apks/*.apk
